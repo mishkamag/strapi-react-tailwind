@@ -6,7 +6,7 @@ const Navbar = () => {
   const [menu, setMenu] = useState(false);
 
   return (
-    <div className="w-screen h-[80px] z-10 fixed bg-white shadow-lg ">
+    <div className="w-screen h-[80px] z-10 fixed bg-white shadow-lg relative ">
       <div className="flex justify-between items-center w-full h-full md:max-w-[1240px] m-auto  ">
         <div className="sm:ml-10 ss:ml-10 opacity-[50px]">LOGOOO</div>
 
