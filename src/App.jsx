@@ -16,7 +16,10 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Homepage blogs={data ? data : ""} />} />
-        <Route path="/blog/:id" element={<BlogDetails />} />
+        <Route
+          path="/blog/:id"
+          element={<BlogDetails blogs={data ? data : ""} />}
+        />
       </Routes>
     </div>
   );

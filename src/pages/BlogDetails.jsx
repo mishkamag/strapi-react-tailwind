@@ -3,11 +3,11 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SingleBlog from "../components/SingleBlog";
 
-const BlogDetails = () => {
+const BlogDetails = ({ blogs }) => {
   return (
     <div>
       <Navbar />
-      <SingleBlog />
+      <SingleBlog blogs={blogs ? blogs : ""} />
       <Footer />
     </div>
   );

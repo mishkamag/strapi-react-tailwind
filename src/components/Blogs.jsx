@@ -6,7 +6,7 @@ const Blogs = ({ blogs }) => {
     <div className="w-full py-[50px]">
       <div className="max-w-[1240px] mx-auto">
         <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-8 px-4 text-black">
-          {blogs.data.map((blog) => (
+          {blogs?.data?.map((blog) => (
             <Link key={blog.id} to={`/blog/${blog.id}`}>
               <div className="bg-white rounded-xl overflow-hidden drop-shadow-md">
                 <img
