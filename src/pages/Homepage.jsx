@@ -3,11 +3,11 @@ import Navbar from "../components/Navbar";
 import Blogs from "../components/Blogs";
 import Footer from "../components/Footer";
 
-const Homepage = () => {
+const Homepage = ({ blogs }) => {
   return (
     <div>
       <Navbar />
-      <Blogs />
+      <Blogs blogs={blogs ? blogs : ""} />
       <Footer />
     </div>
   );
