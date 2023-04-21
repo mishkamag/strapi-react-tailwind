@@ -4,6 +4,8 @@ import Homepage from "./pages/Homepage";
 import { Routes, Route } from "react-router-dom";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   let { loading, data, error } = useFetch(
@@ -15,6 +17,7 @@ function App() {
 
   return (
     <div>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Homepage blogs={data ? data : ""} />} />
         <Route

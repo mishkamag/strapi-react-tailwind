@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState } from "react";
@@ -18,6 +18,7 @@ const SignUp = () => {
       if (username && email && password) {
         const res = await axios.post(url, { username, email, password });
         if (res) {
+          toast.success("Signup successful!", { hideProgressBar: true });
           setUsername("");
           setEmail("");
           setPassword("");
@@ -26,7 +27,7 @@ const SignUp = () => {
         console.log(res);
       }
     } catch (error) {
-      toast.error(error.message, { hideProgressBar: true });
+      toast.error("Wrong Credentials", { hideProgressBar: true });
     }
   };
 
@@ -34,7 +35,7 @@ const SignUp = () => {
     <>
       <Navbar />
       <div className="h-full  flex flex-col items-center justify-center sshadow-md py-16 ">
-        <span className="text-xl	">Register</span>
+        <span className="text-2xl font-bold	">Register</span>
         <form className="mt-5 flex flex-col" onSubmit={handleSubmit}>
           <label>Username</label>
           <input
@@ -70,19 +71,6 @@ const SignUp = () => {
             Register
           </button>
         </form>
-        {/* <button
-          className="absolute top-[80px] right-[20px] bg-red-500 border-none text-white cursor-pointer p-4 rounded-[10px]"
-          type="submit"
-        >
-          <Link className="link" to="/signin">
-            Login
-          </Link>
-        </button> */}
-        {/* {error && (
-          <span style={{ color: "red", marginTop: "10px" }}>
-            Something went wrong{" "}
-          </span>
-        )} */}
       </div>
       <Footer />
     </>
@@ -90,20 +78,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-
-//   const [error, setError] = useState(false);
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setError(false);
-//     try {
-//       const res = await axios.post("http://localhost:5000/api/auth/register", {
-//         username,
-//         email,
-//         password,
-//       });
-//       res.data && window.location.replace("/login");
-//     } catch (error) {
-//       setError(true);
-//     }
-//   };
