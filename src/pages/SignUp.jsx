@@ -1,14 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState } from "react";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -16,6 +17,12 @@ const SignUp = () => {
     try {
       if (username && email && password) {
         const res = await axios.post(url, { username, email, password });
+        if (res) {
+          setUsername("");
+          setEmail("");
+          setPassword("");
+          navigate("/signin");
+        }
         console.log(res);
       }
     } catch (error) {
@@ -57,8 +64,8 @@ const SignUp = () => {
             }}
           />
           <button
+            className="mt-5 cursor-pointer bg-teal-500 border-none   text-white rounded-[10px] p-4"
             type="submit"
-            className="mt-5 cursor-pointer border-none  text-white rounded-[10px] p-4"
           >
             Register
           </button>
