@@ -2,6 +2,8 @@ import useFetch from "./hooks/useFetch";
 import BlogDetails from "./pages/BlogDetails";
 import Homepage from "./pages/Homepage";
 import { Routes, Route } from "react-router-dom";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 
 function App() {
   let { loading, data, error } = useFetch(
@@ -20,6 +22,8 @@ function App() {
           path="/blog/:id"
           element={<BlogDetails blogs={data ? data : ""} />}
         />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
     </div>
   );

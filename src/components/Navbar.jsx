@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
@@ -20,11 +21,15 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="hidden md:flex">
-          <button className="border-none bg-transparent text-black mr-4">
-            Login
-          </button>
-          <button className="px-10 py-3">Sing Up</button>
+        <div className="hidden md:flex items-center">
+          <Link to="/signin">
+            <button className="border-none bg-transparent text-black mr-4">
+              Login
+            </button>
+          </Link>
+          <Link to="/signup">
+            <button className="px-10 py-3">Sing Up</button>
+          </Link>
         </div>
 
         <div
