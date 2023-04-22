@@ -7,9 +7,7 @@ import Footer from "../components/Footer";
 import { toast } from "react-toastify";
 
 const SignIn = () => {
-  const { setIsLoggedIn } = useAuth();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { setIsLoggedIn, email, setEmail, password, setPassword } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -19,7 +17,9 @@ const SignIn = () => {
       if (email && password) {
         const { data } = await axios.post(url, { identifier: email, password });
         if (data.jwt) {
-          toast.success("Signin successful!", { hideProgressBar: true });
+          toast.success(`Signin successful, Welcome ${email}!`, {
+            hideProgressBar: true,
+          });
           setIsLoggedIn(true);
           navigate("/");
         }
